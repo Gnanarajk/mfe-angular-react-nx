@@ -1,0 +1,19 @@
+[15:23:22.939] [INFO] [36mInitializing Storybook[39m
+[15:23:23.924] [DEBUG] Getting package.json info for C:/Users/gnana/projects/mfe-angular-react-nx/package.json...
+[15:23:23.924] [DEBUG] Getting CLI versions from NPM for storybook...
+[15:23:23.925] [DEBUG] Executing command: npm info storybook version
+[15:23:26.300] [INFO] Adding Storybook version 10.3.4 to your project
+[15:23:26.306] [ERROR] [38;2;241;97;97mSB_CLI_INIT_0001 (NxProjectDetectedError): We have detected Nx in your project. Nx has its own Storybook initializer, so please use it instead.
+Run "nx g @nx/storybook:configuration <your-project-name>" to add Storybook to a given Nx app or lib.
+
+More info: https://nx.dev/nx-api/storybook#generating-storybook-configuration
+[39m
+    at ProjectTypeService.autoDetectProjectType (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/chunk-N3IHY4TZ.js:737:15)
+    at async ProjectDetectionCommand.execute (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/chunk-N3IHY4TZ.js:832:22)
+    at async doInitiate (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/chunk-N3IHY4TZ.js:2876:143)
+    at async file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/chunk-N3IHY4TZ.js:2928:20
+    at async withTelemetry (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/storybook/dist/_node-chunks/chunk-HUYNFPPD.js:225:12)
+    at async initiate (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/chunk-N3IHY4TZ.js:2921:24)
+    at async _Command.<anonymous> (file:///C:/Users/gnana/AppData/Local/npm-cache/_npx/05823ecb1a3a987d/node_modules/create-storybook/dist/_node-chunks/run-3R3JP5GF.js:2684:144)
+[15:23:58.309] [PROMPT] Would you like to send anonymous crash reports to improve Storybook and fix bugs faster? {"choice":false}
+[15:23:58.317] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
