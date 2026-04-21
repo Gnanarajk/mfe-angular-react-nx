@@ -4,13 +4,13 @@ import { loadRemote } from '@module-federation/enhanced/runtime';
 import { ReactWrapper } from './react-wrapper/react-wrapper';
 
 export const appRoutes: Route[] = [
-  // {
-  //   path: 'remote1',
-  //   loadChildren: () =>
-  //     loadRemote<typeof import('remote1/Routes')>('remote1/Routes').then(
-  //       (m) => m!.remoteRoutes
-  //     ),
-  // },
+  {
+    path: 'remote1',
+    loadChildren: () =>
+      loadRemote<typeof import('remote1/Routes')>('remote1/Routes').then(
+        (m) => m!.remoteRoutes
+      ),
+  },
   {
     path: 'remote2',
     loadChildren: () =>
