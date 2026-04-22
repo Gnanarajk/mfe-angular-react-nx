@@ -45,3 +45,6 @@ Thumbs.db
 /error.log
 
 .angular
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*
