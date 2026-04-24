@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mfe-angular-react-nx/data-access": [
+      "@mfe-angular-react-nx/users-data-access": [
         "libs/users/data-access/src/index.ts"
       ],
       "remote1/Routes": ["apps/remote1/src/app/remote-entry/entry.routes.ts"],
