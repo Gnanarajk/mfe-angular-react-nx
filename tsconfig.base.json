@@ -15,12 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mfe-angular-react-nx/users-data-access": [
-        "libs/users/data-access/src/index.ts"
+      "@mfe-angular-react-nx/kitchen-data-access": [
+        "libs/kitchen/data-access/src/index.ts"
       ],
-      "remote1/Routes": ["apps/remote1/src/app/remote-entry/entry.routes.ts"],
-      "remote2/Routes": ["apps/remote2/src/app/remote-entry/entry.routes.ts"],
-      "remote3/Module": ["apps/remote3/src/remote-entry.ts"]
+      "nexa-commerce/Routes": [
+        "apps/nexa-commerce/src/app/remote-entry/entry.routes.ts"
+      ],
+      "nexa-identity/Routes": [
+        "apps/nexa-identity/src/app/remote-entry/entry.routes.ts"
+      ],
+      "nexa-kitchen/Module": ["apps/nexa-kitchen/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

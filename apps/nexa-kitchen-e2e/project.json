@@ -1,0 +1,10 @@
+{
+  "name": "nexa-kitchen-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/nexa-kitchen-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["nexa-kitchen"],
+  "// targets": "to see all targets run: nx show project nexa-kitchen-e2e --web",
+  "targets": {}
+}

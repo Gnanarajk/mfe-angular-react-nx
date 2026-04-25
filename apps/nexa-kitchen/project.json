@@ -1,0 +1,92 @@
+{
+  "name": "nexa-kitchen",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nexa-kitchen/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/nexa-kitchen",
+        "index": "apps/nexa-kitchen/src/index.html",
+        "baseHref": "/",
+        "main": "apps/nexa-kitchen/src/main.ts",
+        "tsConfig": "apps/nexa-kitchen/tsconfig.app.json",
+        "assets": [
+          "apps/nexa-kitchen/src/favicon.ico",
+          "apps/nexa-kitchen/src/assets"
+        ],
+        "styles": ["apps/nexa-kitchen/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "apps/nexa-kitchen/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/nexa-kitchen/src/environments/environment.ts",
+              "with": "apps/nexa-kitchen/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/nexa-kitchen/webpack.config.prod.ts"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nexa-kitchen:build",
+        "hmr": true,
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nexa-kitchen:build:development"
+        },
+        "production": {
+          "buildTarget": "nexa-kitchen:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "nexa-kitchen:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "nexa-kitchen:serve:development"
+        },
+        "production": {
+          "serveTarget": "nexa-kitchen:serve:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/nexa-kitchen/jest.config.ts"
+      }
+    }
+  }
+}

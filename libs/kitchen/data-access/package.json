@@ -1,0 +1,11 @@
+{
+  "name": "@mfe-angular-react-nx/kitchen-data-access",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "dependencies": {
+    "zustand": "^5.0.12"
+  }
+}

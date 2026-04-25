@@ -1,0 +1,9 @@
+{
+  "name": "nexa-shell-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/nexa-shell-e2e/src",
+  "implicitDependencies": ["nexa-shell"],
+  "// targets": "to see all targets run: nx show project nexa-shell-e2e --web",
+  "targets": {}
+}
