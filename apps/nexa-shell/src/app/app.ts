@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  imports: [RouterModule],
+  imports: [RouterModule, MatButtonModule],
   selector: 'app-root',
   templateUrl: './app.html',
-  styleUrl: './app.scss',
+  styleUrls: ['./app.scss'],
 })
 export class App {
   protected title = 'host';

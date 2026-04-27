@@ -18,6 +18,7 @@
       "@mfe-angular-react-nx/kitchen-data-access": [
         "libs/kitchen/data-access/src/index.ts"
       ],
+      "@mfe-angular-react-nx/shared-ui": ["libs/shared/ui/src/index.ts"],
       "nexa-commerce/Routes": [
         "apps/nexa-commerce/src/app/remote-entry/entry.routes.ts"
       ],
