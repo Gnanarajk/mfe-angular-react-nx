@@ -14,7 +14,38 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: [],
+  remotes: ['nexa-commerce', 'nexa-identity', 'nexa-kitchen'],
+  shared: (libName, defaultConfig) => {
+    // 1. Angular Core - Singleton + Strict
+    if (
+      ['@angular/core', '@angular/common', '@angular/router'].includes(libName)
+    ) {
+      return {
+        ...defaultConfig,
+        singleton: true,
+        strictVersion: true,
+      };
+    }
+
+    // 2. React - Singleton (Strict version false to allow minor drift)
+    if (['react', 'react-dom'].includes(libName)) {
+      return {
+        ...defaultConfig,
+        singleton: true,
+        strictVersion: false,
+      };
+    }
+
+    // 3. NgRx - Singleton
+    if (libName.startsWith('@ngrx')) {
+      return {
+        ...defaultConfig,
+        singleton: true,
+      };
+    }
+
+    return defaultConfig;
+  },
 };
 
 /**
