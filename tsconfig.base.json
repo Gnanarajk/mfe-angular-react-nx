@@ -15,10 +15,30 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mfe-angular-react-nx/commerce-data-access": [
+        "libs/commerce/data-access/src/index.ts"
+      ],
+      "@mfe-angular-react-nx/commerce-features": [
+        "libs/commerce/features/src/index.ts"
+      ],
+      "@mfe-angular-react-nx/commerce-ui": ["libs/commerce/ui/src/index.ts"],
+      "@mfe-angular-react-nx/identity-data-access": [
+        "libs/identity/data-access/src/index.ts"
+      ],
+      "@mfe-angular-react-nx/identity-features": [
+        "libs/identity/features/src/index.ts"
+      ],
+      "@mfe-angular-react-nx/identity-ui": ["libs/identity/ui/src/index.ts"],
       "@mfe-angular-react-nx/kitchen-data-access": [
         "libs/kitchen/data-access/src/index.ts"
       ],
+      "@mfe-angular-react-nx/kitchen-features": [
+        "libs/kitchen/features/src/index.ts"
+      ],
+      "@mfe-angular-react-nx/kitchen-ui": ["libs/kitchen/ui/src/index.ts"],
+      "@mfe-angular-react-nx/shared-auth": ["libs/shared/auth/src/index.ts"],
       "@mfe-angular-react-nx/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@mfe-angular-react-nx/shared-utils": ["libs/shared/utils/src/index.ts"],
       "nexa-commerce/Routes": [
         "apps/nexa-commerce/src/app/remote-entry/entry.routes.ts"
       ],

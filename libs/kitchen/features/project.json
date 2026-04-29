@@ -1,0 +1,9 @@
+{
+  "name": "kitchen-features",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/kitchen/features/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project kitchen-features --web",
+  "targets": {}
+}

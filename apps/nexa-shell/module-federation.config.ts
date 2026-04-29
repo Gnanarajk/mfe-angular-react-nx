@@ -14,7 +14,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['nexa-commerce', 'nexa-identity', 'nexa-kitchen'],
+  remotes: [],
   shared: (libName, defaultConfig) => {
     // 1. Angular Core - Singleton + Strict
     if (
