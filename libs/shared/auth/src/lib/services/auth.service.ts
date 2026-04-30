@@ -21,4 +21,15 @@ export class AuthService {
       withCredentials: true, // Replaces credentials: 'include'
     });
   }
+
+  getUserInfo(): Observable<any> {
+    const accessToken = localStorage.getItem('accessToken');
+
+    if (!accessToken) {
+      throw new Error('No access token found');
+    }
+    return this.http.get('https://dummyjson.com/auth/me', {
+      credentials: 'include',
+    });
+  }
 }

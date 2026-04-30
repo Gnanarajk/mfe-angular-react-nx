@@ -1,5 +1,6 @@
 import { computed, inject } from '@angular/core';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
+import { User } from '@mfe-angular-react-nx/shared-types';
 import {
   signalStore,
   withState,
@@ -11,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 import { debounceTime, pipe, switchMap, tap } from 'rxjs';
 
 interface AuthState {
+  user: User | null;
   id: number | null;
   username: string | null;
   accessToken: string | null;
@@ -21,6 +23,7 @@ interface AuthState {
 }
 
 const initialState = {
+  user: null,
   id: null,
   username: null,
   accessToken: null,
@@ -44,31 +47,54 @@ export const AuthStore = signalStore(
         debounceTime(300),
         tap(() => patchState(store, { isLoading: true, error: null })),
         switchMap(({ username, password }) =>
-          authService.login(username, password).pipe(
-            // Nested pipe for the API call
-            tap({
-              next: (response) => {
-                localStorage.setItem('accessToken', response.accessToken);
-                localStorage.setItem('refreshToken', response.refreshToken);
-                patchState(store, {
-                  id: response.id,
-                  username: response.username,
-                  accessToken: response.accessToken,
-                  refreshToken: response.refreshToken,
-                  isAuthenticated: true,
-                  isLoading: false,
-                });
-              },
-              error: (err: string) =>
-                patchState(store, {
-                  error: err,
-                  isLoading: false,
-                }),
-            })
-          )
+          authService
+            .login(username, password)
+            .pipe(
+              // Nested pipe for the API call
+              tap({
+                next: (response) => {
+                  localStorage.setItem('accessToken', response.accessToken);
+                  localStorage.setItem('refreshToken', response.refreshToken);
+                  patchState(store, {
+                    id: response.id,
+                    username: response.username,
+                    accessToken: response.accessToken,
+                    refreshToken: response.refreshToken,
+                    isAuthenticated: true,
+                    isLoading: false,
+                  });
+                },
+                error: (err: any) => {
+                  patchState(store, {
+                    error: err.error.message || 'Login failed',
+                    isLoading: false,
+                  });
+                },
+              })
+            )
+            .pipe(
+              switchMap(() =>
+                authService.getUserInfo().pipe(
+                  tap({
+                    next: (userInfo) => {
+                      patchState(store, {
+                        id: userInfo.id,
+                        username: userInfo.username,
+                        user: userInfo,
+                      });
+                    },
+                  })
+                )
+              )
+            )
         )
       ) // Close the main pipe
     ), // Close the rxMethod
+    logout: () => {
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      patchState(store, initialState);
+    },
   }))
 );
 export default AuthStore;

@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthStore } from '@mfe-angular-react-nx/shared-auth';
-import { getState } from '@ngrx/signals';
 
 @Component({
   imports: [RouterModule, MatButtonModule],
@@ -22,5 +21,8 @@ export class App implements OnInit {
   testLogin() {
     console.log('Testing Login...');
     this.store.login({ username: 'emilys', password: 'emilyspass' });
+  }
+  logout() {
+    this.store.logout();
   }
 }

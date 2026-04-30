@@ -1,0 +1,21 @@
+<div class="login-container">
+  @if (store.isAuthenticated()) {
+  <p style="color: green">You are logged in as {{ store.user()?.username }}</p>
+  } @else {
+  <div>
+    <h2>Login</h2>
+
+    <!-- Show error message if one exists -->
+    @if (store.error()) {
+    <p style="color: red">{{ store.error() }}</p>
+    }
+
+    <input [(ngModel)]="username" placeholder="Username" />
+    <input [(ngModel)]="password" type="password" placeholder="Password" />
+
+    <button (click)="onLogin()" [disabled]="store.isLoading()">
+      {{ store.isLoading() ? 'Logging in...' : 'Login' }}
+    </button>
+  </div>
+  }
+</div>
